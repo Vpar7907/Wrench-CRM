@@ -1,0 +1,129 @@
+@import "variables";
+
+@media (max-width: 768px) {
+  nav {
+    top: 0;
+    bottom: 0;
+    background: #fff;
+    width: 70vw;
+    display: block;
+    position: fixed;
+    margin-right: 50px;
+    left: -100vw;
+    transition: all 0.5s;
+  }
+
+  nav.active {
+    left: 0;
+  }
+}
+nav {
+  box-shadow: 0px 0px 5px rgba(2, 0, 96, 0.25);
+  min-height: $height;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 24px;
+  color: $black;
+  grid-area: aside;
+  a {
+    position: relative;
+  }
+  a:hover::after {
+    content: "";
+    position: absolute;
+    text-align: right;
+    height: 90%;
+    right: 0;
+    border-left: 3px solid #4f27bf;
+    border-radius: 7px;
+  }
+
+  .menup {
+    margin: 0;
+    padding-left: 32px;
+    padding-top: 24px;
+  }
+
+  ul {
+    list-style: none;
+
+    li > a {
+      color: black;
+      text-decoration: none;
+      display: flex;
+      justify-content: flex-start;
+
+      .open-arrow {
+        margin-left: 67px;
+        transform: rotate(180deg);
+        transition: all 0.5s linear;
+      }
+      .open-arrow.active {
+        transform: rotate(0deg);
+      }
+
+      p {
+        padding-left: 16px;
+      }
+    }
+  }
+}
+
+.subitems {
+  overflow: hidden;
+
+  li {
+    @media (max-width: 768px) {
+      animation: menusubitemMobile 1s;
+    }
+    animation: menusubitem 1s;
+  }
+}
+
+.subitems.close {
+  li {
+    @media (max-width: 768px) {
+      animation: menusubitemcloseMobile 1s;
+    }
+    animation: menusubitemclose 1s;
+  }
+}
+
+@keyframes menusubitemMobile {
+  0% {
+    height: 0;
+  }
+
+  100% {
+    height: 63px;
+  }
+}
+@keyframes menusubitemcloseMobile {
+  0% {
+    height: 63px;
+  }
+
+  100% {
+    height: 0px;
+  }
+}
+
+@keyframes menusubitem {
+  0% {
+    height: 0;
+  }
+
+  100% {
+    height: 88px;
+  }
+}
+@keyframes menusubitemclose {
+  0% {
+    height: 88px;
+  }
+
+  100% {
+    height: 0px;
+  }
+}
