@@ -29,7 +29,7 @@ export const navBar: navBarItem[] = [
     id: 2,
     name: "Поиск адресов",
     image: adress,
-    path: "/adress",
+    path: "/address",
   },
   {
     id: 3,
